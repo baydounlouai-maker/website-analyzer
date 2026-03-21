@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>WebSite Analyzer</h1>
+      <div class="search-bar">
+        <input type="text" id="urlInput" placeholder="https://www.example.com" />
+        <button id="analyzeBtn">Analyze</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="spinner" class="spinner hidden">Analyzing<span class="dots">...</span></div>
+    <div id="error" class="error-msg hidden"></div>
+
+    <div id="dashboard" class="dashboard hidden">
+
+      <div class="grid">
+
+        <!-- SEO Analysis -->
+        <div class="card">
+          <h2>SEO Analysis</h2>
+          <div class="metric">
+            <span class="label">Title</span>
+            <span id="seoTitle" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Title Length</span>
+            <span id="seoTitleLength" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Meta Description</span>
+            <span id="seoMetaDesc" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Meta Description Length</span>
+            <span id="seoMetaDescLength" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Meta Tags Found</span>
+            <span id="seoKeywords" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Images with Alt</span>
+            <span id="seoAlt" class="value">—</span>
+          </div>
+          <div class="top-words hidden" id="topWordsSection">
+            <h3>Top Keywords</h3>
+            <ul id="topWordsList"></ul>
+          </div>
+        </div>
+
+        <!-- Performance -->
+        <div class="card">
+          <h2>Performance Indicators</h2>
+          <div class="metric">
+            <span class="label">Page Size</span>
+            <span id="perfSize" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Scripts</span>
+            <span id="perfScripts" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">CSS Files</span>
+            <span id="perfCSS" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Images</span>
+            <span id="perfImages" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Lazy-Loaded Images</span>
+            <span id="perfLazy" class="value">—</span>
+          </div>
+        </div>
+
+        <!-- Content Analysis -->
+        <div class="card">
+          <h2>Content Analysis</h2>
+          <div class="metric">
+            <span class="label">Word Count</span>
+            <span id="contentWords" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Reading Time</span>
+            <span id="contentReading" class="value">—</span>
+          </div>
+        </div>
+
+        <!-- Link Analysis -->
+        <div class="card">
+          <h2>Link Analysis</h2>
+          <div class="metric">
+            <span class="label">Internal Links</span>
+            <span id="linksInternal" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">External Links</span>
+            <span id="linksExternal" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Social Links</span>
+            <span id="linksSocial" class="value">—</span>
+          </div>
+        </div>
+
+        <!-- Media & Assets -->
+        <div class="card">
+          <h2>Media &amp; Assets</h2>
+          <div class="metric">
+            <span class="label">Total Images</span>
+            <span id="mediaImages" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Total Videos</span>
+            <span id="mediaVideos" class="value">—</span>
+          </div>
+          <div class="metric">
+            <span class="label">Missing Alt Text</span>
+            <span id="mediaMissingAlt" class="value">—</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scores -->
+      <div class="scores">
+        <div class="score-card">
+          <div class="score-number">
+            <div id="scoreSEO" class="score-value">—</div>
+            <span class="score-denom">/ 100</span>
+          </div>
+          <div class="score-label">SEO Score</div>
+        </div>
+        <div class="score-card">
+          <div class="score-number">
+            <div id="scorePerf" class="score-value">—</div>
+            <span class="score-denom">/ 100</span>
+          </div>
+          <div class="score-label">Performance</div>
+        </div>
+        <div class="score-card">
+          <div class="score-number">
+            <div id="scoreOverall" class="score-value">—</div>
+            <span class="score-denom">/ 100</span>
+          </div>
+          <div class="score-label">Overall Score</div>
+        </div>
+        <div class="score-card highlight">
+          <div id="scoreGrade" class="score-value">—</div>
+          <div class="score-label">Overall Grade</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
