@@ -24,147 +24,180 @@
 
     <div id="dashboard" class="dashboard hidden">
 
-      <div class="grid">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="results">Results</button>
+        <button class="tab-btn" data-tab="visualized">Visualized</button>
+      </div>
 
-        <!-- SEO Analysis -->
-        <div class="card">
-          <h2>SEO Analysis</h2>
-          <div class="metric">
-            <span class="label">Title</span>
-            <span id="seoTitle" class="value">—</span>
+      <!-- Results Tab -->
+      <div id="tab-results" class="tab-panel active">
+
+        <div class="grid">
+
+          <!-- SEO Analysis -->
+          <div class="card">
+            <h2>SEO Analysis</h2>
+            <div class="metric">
+              <span class="label">Title</span>
+              <span id="seoTitle" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Title Length</span>
+              <span id="seoTitleLength" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Meta Description</span>
+              <span id="seoMetaDesc" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Meta Description Length</span>
+              <span id="seoMetaDescLength" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Meta Tags Found</span>
+              <span id="seoKeywords" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Images with Alt</span>
+              <span id="seoAlt" class="value">—</span>
+            </div>
+            <div class="top-words hidden" id="topWordsSection">
+              <h3>Top Keywords</h3>
+              <ul id="topWordsList"></ul>
+            </div>
           </div>
-          <div class="metric">
-            <span class="label">Title Length</span>
-            <span id="seoTitleLength" class="value">—</span>
+
+          <!-- Performance -->
+          <div class="card">
+            <h2>Performance Indicators</h2>
+            <div class="metric">
+              <span class="label">Page Size</span>
+              <span id="perfSize" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Scripts</span>
+              <span id="perfScripts" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">CSS Files</span>
+              <span id="perfCSS" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Images</span>
+              <span id="perfImages" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Lazy-Loaded Images</span>
+              <span id="perfLazy" class="value">—</span>
+            </div>
           </div>
-          <div class="metric">
-            <span class="label">Meta Description</span>
-            <span id="seoMetaDesc" class="value">—</span>
+
+          <!-- Content Analysis -->
+          <div class="card">
+            <h2>Content Analysis</h2>
+            <div class="metric">
+              <span class="label">Word Count</span>
+              <span id="contentWords" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Reading Time</span>
+              <span id="contentReading" class="value">—</span>
+            </div>
           </div>
-          <div class="metric">
-            <span class="label">Meta Description Length</span>
-            <span id="seoMetaDescLength" class="value">—</span>
+
+          <!-- Link Analysis -->
+          <div class="card">
+            <h2>Link Analysis</h2>
+            <div class="metric">
+              <span class="label">Internal Links</span>
+              <span id="linksInternal" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">External Links</span>
+              <span id="linksExternal" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Social Links</span>
+              <span id="linksSocial" class="value">—</span>
+            </div>
           </div>
-          <div class="metric">
-            <span class="label">Meta Tags Found</span>
-            <span id="seoKeywords" class="value">—</span>
+
+          <!-- Media & Assets -->
+          <div class="card">
+            <h2>Media &amp; Assets</h2>
+            <div class="metric">
+              <span class="label">Total Images</span>
+              <span id="mediaImages" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Total Videos</span>
+              <span id="mediaVideos" class="value">—</span>
+            </div>
+            <div class="metric">
+              <span class="label">Missing Alt Text</span>
+              <span id="mediaMissingAlt" class="value">—</span>
+            </div>
           </div>
-          <div class="metric">
-            <span class="label">Images with Alt</span>
-            <span id="seoAlt" class="value">—</span>
-          </div>
-          <div class="top-words hidden" id="topWordsSection">
-            <h3>Top Keywords</h3>
-            <ul id="topWordsList"></ul>
-          </div>
+
         </div>
 
-        <!-- Performance -->
-        <div class="card">
-          <h2>Performance Indicators</h2>
-          <div class="metric">
-            <span class="label">Page Size</span>
-            <span id="perfSize" class="value">—</span>
+        <!-- Scores -->
+        <div class="scores">
+          <div class="score-card">
+            <div class="score-number">
+              <div id="scoreSEO" class="score-value">—</div>
+              <span class="score-denom">/ 100</span>
+            </div>
+            <div class="score-label">SEO Score</div>
           </div>
-          <div class="metric">
-            <span class="label">Scripts</span>
-            <span id="perfScripts" class="value">—</span>
+          <div class="score-card">
+            <div class="score-number">
+              <div id="scorePerf" class="score-value">—</div>
+              <span class="score-denom">/ 100</span>
+            </div>
+            <div class="score-label">Performance</div>
           </div>
-          <div class="metric">
-            <span class="label">CSS Files</span>
-            <span id="perfCSS" class="value">—</span>
+          <div class="score-card">
+            <div class="score-number">
+              <div id="scoreOverall" class="score-value">—</div>
+              <span class="score-denom">/ 100</span>
+            </div>
+            <div class="score-label">Overall Score</div>
           </div>
-          <div class="metric">
-            <span class="label">Images</span>
-            <span id="perfImages" class="value">—</span>
-          </div>
-          <div class="metric">
-            <span class="label">Lazy-Loaded Images</span>
-            <span id="perfLazy" class="value">—</span>
-          </div>
-        </div>
-
-        <!-- Content Analysis -->
-        <div class="card">
-          <h2>Content Analysis</h2>
-          <div class="metric">
-            <span class="label">Word Count</span>
-            <span id="contentWords" class="value">—</span>
-          </div>
-          <div class="metric">
-            <span class="label">Reading Time</span>
-            <span id="contentReading" class="value">—</span>
-          </div>
-        </div>
-
-        <!-- Link Analysis -->
-        <div class="card">
-          <h2>Link Analysis</h2>
-          <div class="metric">
-            <span class="label">Internal Links</span>
-            <span id="linksInternal" class="value">—</span>
-          </div>
-          <div class="metric">
-            <span class="label">External Links</span>
-            <span id="linksExternal" class="value">—</span>
-          </div>
-          <div class="metric">
-            <span class="label">Social Links</span>
-            <span id="linksSocial" class="value">—</span>
-          </div>
-        </div>
-
-        <!-- Media & Assets -->
-        <div class="card">
-          <h2>Media &amp; Assets</h2>
-          <div class="metric">
-            <span class="label">Total Images</span>
-            <span id="mediaImages" class="value">—</span>
-          </div>
-          <div class="metric">
-            <span class="label">Total Videos</span>
-            <span id="mediaVideos" class="value">—</span>
-          </div>
-          <div class="metric">
-            <span class="label">Missing Alt Text</span>
-            <span id="mediaMissingAlt" class="value">—</span>
+          <div class="score-card highlight">
+            <div id="scoreGrade" class="score-value">—</div>
+            <div class="score-label">Overall Grade</div>
           </div>
         </div>
 
       </div>
 
-      <!-- Scores -->
-      <div class="scores">
-        <div class="score-card">
-          <div class="score-number">
-            <div id="scoreSEO" class="score-value">—</div>
-            <span class="score-denom">/ 100</span>
+      <!-- Visualized Tab -->
+      <div id="tab-visualized" class="tab-panel">
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h2>Scores Overview</h2>
+            <canvas id="chartScores"></canvas>
           </div>
-          <div class="score-label">SEO Score</div>
-        </div>
-        <div class="score-card">
-          <div class="score-number">
-            <div id="scorePerf" class="score-value">—</div>
-            <span class="score-denom">/ 100</span>
+          <div class="chart-card">
+            <h2>Link Distribution</h2>
+            <canvas id="chartLinks"></canvas>
           </div>
-          <div class="score-label">Performance</div>
-        </div>
-        <div class="score-card">
-          <div class="score-number">
-            <div id="scoreOverall" class="score-value">—</div>
-            <span class="score-denom">/ 100</span>
+          <div class="chart-card">
+            <h2>Image Alt Text Coverage</h2>
+            <canvas id="chartAlt"></canvas>
           </div>
-          <div class="score-label">Overall Score</div>
-        </div>
-        <div class="score-card highlight">
-          <div id="scoreGrade" class="score-value">—</div>
-          <div class="score-label">Overall Grade</div>
+          <div class="chart-card">
+            <h2>Page Resources</h2>
+            <canvas id="chartResources"></canvas>
+          </div>
         </div>
       </div>
 
     </div>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
