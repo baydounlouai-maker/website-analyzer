@@ -28,6 +28,7 @@ async function runAnalysis() {
     return;
   }
 
+  hideHomepage();
   showSpinner();
   hideError();
   hideDashboard();
@@ -211,6 +212,7 @@ function scoreColor(value) {
   return 'red';
 }
 
+function hideHomepage() { document.getElementById('homepage').classList.add('hidden'); }
 function showSpinner() { document.getElementById('spinner').classList.remove('hidden'); }
 function hideSpinner() { document.getElementById('spinner').classList.add('hidden'); }
 function showDashboard() { document.getElementById('dashboard').classList.remove('hidden'); }
